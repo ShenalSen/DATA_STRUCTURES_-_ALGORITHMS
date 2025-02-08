@@ -28,6 +28,14 @@ public class Algorithm_2 {
     }
     
     public static void main(String[] args) {
-        
+        int[] sizes = {100000, 200000, 400000, 800000, 1600000}; // Adjust these sizes to aim for ~1 second runtime
+        for (int size : sizes) {
+            int[] input = createInput(size);
+            long startTime = System.nanoTime();
+            int result = findSmallestMissing(input);
+            long endTime = System.nanoTime();
+            long duration = (endTime - startTime) / 1000000; // Convert to milliseconds
+            System.out.println("Input size: " + size + " -> Time taken: " + duration + " ms, Result: " + result);
+        }
     }
 }
